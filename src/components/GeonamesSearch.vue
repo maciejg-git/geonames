@@ -84,7 +84,7 @@
 			}
 		},
 		mounted: function() {
-			this.name = "cascade creek;eureka"
+			this.name = ""
 		},
 		methods: {
 			search() {

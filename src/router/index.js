@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Geonames from '../components/Geonames.vue'
-import About from '../components/About.vue'
 
 Vue.use(VueRouter)
 
@@ -10,11 +9,6 @@ const routes = [
     path: '/geonames',
     name: 'geonames',
     component: Geonames
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: About
   },
 	{ 
 		path: '/', 
