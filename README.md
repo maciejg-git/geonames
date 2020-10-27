@@ -1,4 +1,4 @@
-# geonames
+# Geonames
 
 Application for searching geographic locations in USA using USGS API.
 
