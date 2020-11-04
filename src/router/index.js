@@ -10,10 +10,10 @@ const routes = [
     name: 'geonames',
     component: Geonames
   },
-	{ 
-		path: '/', 
-		redirect: '/geonames' 
-	}
+  { 
+    path: '/', 
+    redirect: '/geonames' 
+  }
 ]
 
 const router = new VueRouter({

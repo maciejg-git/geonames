@@ -15,11 +15,11 @@
 
         <!-- FILTER AND SETTINGS COMPONENT -->
 
-				<div class="card mb-4">
-					<div class="card-body">
-						<GeonamesFilter />
-					</div>
-				</div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <GeonamesFilter />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -31,26 +31,26 @@
 
     <!-- RESULTS COMPONENT -->
 
-		<VPanel 
-			v-show="$store.state.isLoadingItems.length" 
-			v-model="resultActiveTab" 
-			ref="panel" 
-			class="mt-4"
-		>
-			<VTab
-				v-for="(result, i) in $store.state.isLoadingItems"
-				:name="tabs[i]"
-				:add="result"
-				:show="true"
-			>
-				<GeonamesItems 
-					v-show="!$store.state.isLoadingItems[i]" 
-					:items="i" 
-					ref="'items'+i"
-				>
-				</GeonamesItems>
-			</VTab>
-		</VPanel>
+    <VPanel 
+      v-show="$store.state.isLoadingItems.length" 
+      v-model="resultActiveTab" 
+      ref="panel" 
+      class="mt-4"
+    >
+      <VTab
+        v-for="(result, i) in $store.state.isLoadingItems"
+        :name="tabs[i]"
+        :add="result"
+        :show="true"
+      >
+        <GeonamesItems 
+          v-show="!$store.state.isLoadingItems[i]" 
+          :items="i" 
+          ref="'items'+i"
+        >
+        </GeonamesItems>
+      </VTab>
+    </VPanel>
 
   </div>
 </template>
@@ -88,12 +88,12 @@ export default {
       resultActiveTab: 0
     };
   },
-	mounted: function() {
-		this.loadHistory();
-	},
+  mounted: function() {
+    this.loadHistory();
+  },
   computed: {},
   watch: {
-  	// update filtered count
+    // update filtered count
     "$store.getters.filteredItems2": function() {
       for (let i = 0; i < this.$store.state.resultCount.length; i++) {
         let count = this.$store.getters.resultCountByFeature(i);
@@ -103,10 +103,10 @@ export default {
     }
   },
   methods: {
-		search(data) {
-			if (!data.name || this.$store.state.isLoadingItems.includes(true)) {
-				return
-			}
+    search(data) {
+      if (!data.name || this.$store.state.isLoadingItems.includes(true)) {
+        return
+      }
       this.resetComponent();
       this.resultActiveTab = 0;
 
@@ -122,7 +122,7 @@ export default {
       };
 
       let name = data.name.split(";");
-			
+      
       this.$store.commit("setSearchFeatures", { name });
       this.$store.commit("setHistory", { searchString: data.name });
       this.saveHistory();
@@ -137,27 +137,27 @@ export default {
       
     },
 
-		// RESET
+    // RESET
 
-		resetComponent() {
-			this.$store.commit("resetItems");
-			this.$store.commit("resetIsLoadingItems");
-			this.$store.commit("resetResult");
-			this.$store.commit("setResultCounter", true);
-		},
+    resetComponent() {
+      this.$store.commit("resetItems");
+      this.$store.commit("resetIsLoadingItems");
+      this.$store.commit("resetResult");
+      this.$store.commit("setResultCounter", true);
+    },
 
-		// HISTORY
+    // HISTORY
 
-		saveHistory() {
-			localStorage.setItem("searchHistory", JSON.stringify(this.$store.state.searchHistory));
-		},
-		loadHistory () {
-			let searchHistory = JSON.parse(
-				localStorage.getItem("searchHistory")
-			);
-			if (searchHistory) this.$store.commit("loadHistory", { searchHistory });
-		}
-	}
+    saveHistory() {
+      localStorage.setItem("searchHistory", JSON.stringify(this.$store.state.searchHistory));
+    },
+    loadHistory () {
+      let searchHistory = JSON.parse(
+        localStorage.getItem("searchHistory")
+      );
+      if (searchHistory) this.$store.commit("loadHistory", { searchHistory });
+    }
+  }
 };
 </script>
 

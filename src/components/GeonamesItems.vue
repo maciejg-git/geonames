@@ -29,9 +29,9 @@
           <tr>
             <td>
               <i 
-								class="fas fa-map-marker-alt pr-2"
-							></i>
-								{{ item.Name }}
+                class="fas fa-map-marker-alt pr-2"
+              ></i>
+                {{ item.Name }}
             </td>
             <td>{{ item.State }}</td>
             <td>{{ item.County }}</td>

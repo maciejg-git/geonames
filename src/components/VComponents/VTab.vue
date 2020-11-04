@@ -17,9 +17,9 @@ export default {
   mounted: function() {
     this.$parent.$emit("addtab", this);
   },
-	destroyed: function() {
+  destroyed: function() {
     this.$parent.$emit("deletetab", this);
-	},
+  },
   methods: {}
 };
 </script>

@@ -6,7 +6,7 @@
         :
         found {{ result.nameCount }} features
         ( {{ result.nameFiltered }} filtered )
-				<br />
+        <br />
       </div>
     </div>
   </div>
